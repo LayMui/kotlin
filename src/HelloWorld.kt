@@ -1,3 +1,5 @@
+import java.lang.ArithmeticException
+
 fun main(args: Array<String>) {
     var name = "laymui";
     val surname = "toh"
@@ -80,5 +82,40 @@ fun main(args: Array<String>) {
         println("in range")
     }
 
+    // Collection: set of values similar to Arrays where you can put multiple items in the collection
+    // You can create mutable or immutable lists
+    var fruit = listOf<String>("Apple", "Orange", "Banana")
 
+    when {
+        "Banana" in fruit -> println("Yellow")
+        "Orange" in fruit -> println("Orange")
+        else -> {
+            println("Anything")
+        }
+    }
+
+    var books: MutableCollection<String> = mutableListOf<String>("Speaking in tongue", "The father's voice", "Give me that mountains")
+
+    books.add("Life of An intercessor")
+    println("Book to read this month: " + books)
+
+    // Function as expression
+    fun add(a: Int): Int = a + 10
+
+    println("Function expression: " + add(10))
+
+    // Exception handling
+    val test: Int = 0
+    val num: Int? = try {
+        10 / test
+    } catch(e: ArithmeticException) {
+        println("can't do that")
+        null
+    }
+
+    var apple = fruit() // create an instance of a class
+    apple.type = "Amori"
+    apple.color = "Cherry Red"
+
+    println("Fruit type: " + apple.type)
 }
